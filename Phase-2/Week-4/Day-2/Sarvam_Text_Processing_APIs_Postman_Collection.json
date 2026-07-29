@@ -1,0 +1,161 @@
+{
+  "info": {
+    "name": "Sarvam Text Processing APIs Test Collection",
+    "_postman_id": "8d4d2d0a-0000-4000-9000-sarvam-text",
+    "description": "Ready-to-import Postman Collection for Sarvam Text Processing APIs.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.sarvam.ai"
+    },
+    {
+      "key": "apiKey",
+      "value": "YOUR_API_KEY"
+    }
+  ],
+  "item": [
+    {
+      "name": "Translation",
+      "description": "Translate text using Mayura or Sarvam Translate models.",
+      "item": [
+        {
+          "name": "Translate Text",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "api-subscription-key",
+                "value": "{{apiKey}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"input\": \"Hello, how are you today?\",\n  \"source_language_code\": \"auto\",\n  \"target_language_code\": \"hi-IN\",\n  \"model\": \"mayura:v1\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/translate",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "translate"
+              ]
+            },
+            "description": "Translate text from source to target language."
+          },
+          "response": [
+            {
+              "name": "200 OK",
+              "originalRequest": {},
+              "status": "OK",
+              "code": 200,
+              "body": "{\n  \"request_id\": \"12345\",\n  \"translated_text\": \"\\u0928\\u092e\\u0938\\u094d\\u0924\\u0947, \\u0906\\u092a \\u0906\\u091c \\u0915\\u0948\\u0938\\u0947 \\u0939\\u0948\\u0902?\",\n  \"source_language_code\": \"en-IN\"\n}"
+            }
+          ],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status code is 200', function(){pm.response.to.have.status(200);});",
+                  "pm.test('Translated text exists', function(){var j=pm.response.json(); pm.expect(j.translated_text).to.exist;});"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Transliteration",
+      "item": [
+        {
+          "name": "Transliterate Text",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "api-subscription-key",
+                "value": "{{apiKey}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"input\": \"namaste\",\n  \"source_language_code\": \"en-IN\",\n  \"target_language_code\": \"hi-IN\",\n  \"model\": \"mayura:v1\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/transliterate",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "transliterate"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "200 OK",
+              "status": "OK",
+              "code": 200,
+              "body": "{\n  \"request_id\": \"12345\",\n  \"transliterated_text\": \"\\u0928\\u092e\\u0938\\u094d\\u0924\\u0947\"\n}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Language Identification",
+      "item": [
+        {
+          "name": "Detect Language",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "api-subscription-key",
+                "value": "{{apiKey}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"input\": \"\\u0ca8\\u0cae\\u0cb8\\u0ccd\\u0c95\\u0cbe\\u0cb0\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/text-lid",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "text-lid"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "200 OK",
+              "status": "OK",
+              "code": 200,
+              "body": "{\n  \"request_id\": \"12345\",\n  \"language_code\": \"kn-IN\",\n  \"confidence\": 0.99\n}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
