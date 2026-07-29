@@ -1,0 +1,570 @@
+{
+  "info": {
+    "name": "Cohere Embed API Examples",
+    "_postman_id": "9b4d4b7d-cohere-embed-demo",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": "Sample Postman collection for Cohere Embed API covering text, image, multimodal and negative test scenarios."
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.cohere.com/v2"
+    },
+    {
+      "key": "apiKey",
+      "value": "YOUR_COHERE_API_KEY"
+    },
+    {
+      "key": "model",
+      "value": "embed-v4.0"
+    }
+  ],
+  "item": [
+    {
+      "name": "Single Text",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{apiKey}}"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/embed",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "embed"
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"model\": \"{{model}}\",\n  \"input_type\": \"search_document\",\n  \"texts\": [\n    \"Playwright is an automation framework.\"\n  ],\n  \"embedding_types\": [\n    \"float\"\n  ]\n}"
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('Status is 200',()=>pm.response.to.have.status(200));",
+              "const j=pm.response.json();",
+              "pm.expect(j).to.have.property('embeddings');"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Multiple Texts",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{apiKey}}"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/embed",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "embed"
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"model\": \"{{model}}\",\n  \"input_type\": \"search_document\",\n  \"texts\": [\n    \"Playwright\",\n    \"Selenium\",\n    \"Cypress\",\n    \"Postman\"\n  ]\n}"
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('Status is 200',()=>pm.response.to.have.status(200));",
+              "const j=pm.response.json();",
+              "pm.expect(j).to.have.property('embeddings');"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Search Query",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{apiKey}}"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/embed",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "embed"
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"model\": \"{{model}}\",\n  \"input_type\": \"search_query\",\n  \"texts\": [\n    \"How do I automate browser testing?\"\n  ]\n}"
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('Status is 200',()=>pm.response.to.have.status(200));",
+              "const j=pm.response.json();",
+              "pm.expect(j).to.have.property('embeddings');"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Classification",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{apiKey}}"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/embed",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "embed"
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"model\": \"{{model}}\",\n  \"input_type\": \"classification\",\n  \"texts\": [\n    \"Customer requested a refund.\"\n  ]\n}"
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('Status is 200',()=>pm.response.to.have.status(200));",
+              "const j=pm.response.json();",
+              "pm.expect(j).to.have.property('embeddings');"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Clustering",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{apiKey}}"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/embed",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "embed"
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"model\": \"{{model}}\",\n  \"input_type\": \"clustering\",\n  \"texts\": [\n    \"Apple\",\n    \"Samsung\",\n    \"Toyota\",\n    \"Honda\"\n  ]\n}"
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('Status is 200',()=>pm.response.to.have.status(200));",
+              "const j=pm.response.json();",
+              "pm.expect(j).to.have.property('embeddings');"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Long Text Truncate",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{apiKey}}"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/embed",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "embed"
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"model\": \"{{model}}\",\n  \"input_type\": \"search_document\",\n  \"texts\": [\n    \"Very long text goes here...\"\n  ],\n  \"truncate\": \"END\"\n}"
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('Status is 200',()=>pm.response.to.have.status(200));",
+              "const j=pm.response.json();",
+              "pm.expect(j).to.have.property('embeddings');"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Output Dimension",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{apiKey}}"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/embed",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "embed"
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"model\": \"{{model}}\",\n  \"input_type\": \"search_document\",\n  \"texts\": [\n    \"Software Testing\"\n  ],\n  \"output_dimension\": 512\n}"
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('Status is 200',()=>pm.response.to.have.status(200));",
+              "const j=pm.response.json();",
+              "pm.expect(j).to.have.property('embeddings');"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "INT8 Embedding",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{apiKey}}"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/embed",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "embed"
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"model\": \"{{model}}\",\n  \"input_type\": \"search_document\",\n  \"texts\": [\n    \"Machine Learning\"\n  ],\n  \"embedding_types\": [\n    \"int8\"\n  ]\n}"
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('Status is 200',()=>pm.response.to.have.status(200));",
+              "const j=pm.response.json();",
+              "pm.expect(j).to.have.property('embeddings');"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Float + INT8",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{apiKey}}"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/embed",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "embed"
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"model\": \"{{model}}\",\n  \"input_type\": \"search_document\",\n  \"texts\": [\n    \"AI Testing\"\n  ],\n  \"embedding_types\": [\n    \"float\",\n    \"int8\"\n  ]\n}"
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('Status is 200',()=>pm.response.to.have.status(200));",
+              "const j=pm.response.json();",
+              "pm.expect(j).to.have.property('embeddings');"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Single Image",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{apiKey}}"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/embed",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "embed"
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"model\": \"{{model}}\",\n  \"input_type\": \"image\",\n  \"images\": [\n    \"data:image/png;base64,REPLACE_BASE64\"\n  ]\n}"
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('Status is 200',()=>pm.response.to.have.status(200));",
+              "const j=pm.response.json();",
+              "pm.expect(j).to.have.property('embeddings');"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Multiple Images",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{apiKey}}"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/embed",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "embed"
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"model\": \"{{model}}\",\n  \"input_type\": \"image\",\n  \"images\": [\n    \"data:image/png;base64,IMAGE1\",\n    \"data:image/png;base64,IMAGE2\"\n  ]\n}"
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('Status is 200',()=>pm.response.to.have.status(200));",
+              "const j=pm.response.json();",
+              "pm.expect(j).to.have.property('embeddings');"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Multimodal",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{apiKey}}"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/embed",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "embed"
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"model\": \"{{model}}\",\n  \"input_type\": \"search_document\",\n  \"inputs\": [\n    {\n      \"content\": [\n        {\n          \"type\": \"text\",\n          \"text\": \"Red sports car\"\n        },\n        {\n          \"type\": \"image\",\n          \"image\": \"data:image/jpeg;base64,REPLACE_BASE64\"\n        }\n      ]\n    }\n  ]\n}"
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('Status is 200',()=>pm.response.to.have.status(200));",
+              "const j=pm.response.json();",
+              "pm.expect(j).to.have.property('embeddings');"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Missing Model (Negative)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{apiKey}}"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/embed",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "embed"
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"texts\": [\n    \"Hello\"\n  ]\n}"
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('Status is 200',()=>pm.response.to.have.status(200));",
+              "const j=pm.response.json();",
+              "pm.expect(j).to.have.property('embeddings');"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,329 @@
+{
+  "info": {
+    "name": "VoyageAI Multimodal Embeddings API",
+    "_postman_id": "voyageai-multimodal-demo",
+    "description": "Sample Postman Collection for Voyage AI Multimodal Embeddings endpoint.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.voyageai.com"
+    },
+    {
+      "key": "apiKey",
+      "value": "YOUR_API_KEY"
+    },
+    {
+      "key": "model",
+      "value": "voyage-multimodal-3.5"
+    },
+    {
+      "key": "imageUrl",
+      "value": "https://images.unsplash.com/photo-1516117172878-fd2c41f4a759"
+    }
+  ],
+  "item": [
+    {
+      "name": "Text Only",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{apiKey}}"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/v1/multimodalembeddings",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "v1",
+            "multimodalembeddings"
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"inputs\": [\n    {\n      \"content\": [\n        {\n          \"type\": \"text\",\n          \"text\": \"What is artificial intelligence?\"\n        }\n      ]\n    }\n  ],\n  \"model\": \"{{model}}\"\n}"
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.response.to.have.status(200);",
+              "var jsonData = {}; try { jsonData = pm.response.json(); } catch(e) {}",
+              "pm.test('Response received', function(){pm.expect(pm.response.code).to.be.oneOf([200,400,401]);});"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Image URL Only",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{apiKey}}"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/v1/multimodalembeddings",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "v1",
+            "multimodalembeddings"
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"inputs\": [\n    {\n      \"content\": [\n        {\n          \"type\": \"image_url\",\n          \"image_url\": \"{{imageUrl}}\"\n        }\n      ]\n    }\n  ],\n  \"model\": \"{{model}}\"\n}"
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.response.to.have.status(200);",
+              "var jsonData = {}; try { jsonData = pm.response.json(); } catch(e) {}",
+              "pm.test('Response received', function(){pm.expect(pm.response.code).to.be.oneOf([200,400,401]);});"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Text + Image",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{apiKey}}"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/v1/multimodalembeddings",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "v1",
+            "multimodalembeddings"
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"inputs\": [\n    {\n      \"content\": [\n        {\n          \"type\": \"text\",\n          \"text\": \"Describe this image\"\n        },\n        {\n          \"type\": \"image_url\",\n          \"image_url\": \"{{imageUrl}}\"\n        }\n      ]\n    }\n  ],\n  \"model\": \"{{model}}\"\n}"
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.response.to.have.status(200);",
+              "var jsonData = {}; try { jsonData = pm.response.json(); } catch(e) {}",
+              "pm.test('Response received', function(){pm.expect(pm.response.code).to.be.oneOf([200,400,401]);});"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Multiple Inputs",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{apiKey}}"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/v1/multimodalembeddings",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "v1",
+            "multimodalembeddings"
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"inputs\": [\n    {\n      \"content\": [\n        {\n          \"type\": \"text\",\n          \"text\": \"Cat\"\n        }\n      ]\n    },\n    {\n      \"content\": [\n        {\n          \"type\": \"text\",\n          \"text\": \"Dog\"\n        }\n      ]\n    }\n  ],\n  \"model\": \"{{model}}\"\n}"
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.response.to.have.status(200);",
+              "var jsonData = {}; try { jsonData = pm.response.json(); } catch(e) {}",
+              "pm.test('Response received', function(){pm.expect(pm.response.code).to.be.oneOf([200,400,401]);});"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Missing Model (Negative)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{apiKey}}"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/v1/multimodalembeddings",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "v1",
+            "multimodalembeddings"
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"inputs\": [\n    {\n      \"content\": [\n        {\n          \"type\": \"text\",\n          \"text\": \"Hello\"\n        }\n      ]\n    }\n  ]\n}"
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.response.to.have.status(400);",
+              "var jsonData = {}; try { jsonData = pm.response.json(); } catch(e) {}",
+              "pm.test('Response received', function(){pm.expect(pm.response.code).to.be.oneOf([200,400,401]);});"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Invalid Model (Negative)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{apiKey}}"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/v1/multimodalembeddings",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "v1",
+            "multimodalembeddings"
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"inputs\": [\n    {\n      \"content\": [\n        {\n          \"type\": \"text\",\n          \"text\": \"Hello\"\n        }\n      ]\n    }\n  ],\n  \"model\": \"invalid-model\"\n}"
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.response.to.have.status(400);",
+              "var jsonData = {}; try { jsonData = pm.response.json(); } catch(e) {}",
+              "pm.test('Response received', function(){pm.expect(pm.response.code).to.be.oneOf([200,400,401]);});"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Missing Authorization (Manual)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{apiKey}}"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/v1/multimodalembeddings",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "v1",
+            "multimodalembeddings"
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"inputs\": [\n    {\n      \"content\": [\n        {\n          \"type\": \"text\",\n          \"text\": \"Hello\"\n        }\n      ]\n    }\n  ],\n  \"model\": \"{{model}}\"\n}"
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.response.to.have.status(401);",
+              "var jsonData = {}; try { jsonData = pm.response.json(); } catch(e) {}",
+              "pm.test('Response received', function(){pm.expect(pm.response.code).to.be.oneOf([200,400,401]);});"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

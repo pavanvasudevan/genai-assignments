@@ -1,0 +1,1710 @@
+{
+  "info": {
+    "name": "VoyageAI Enterprise Multimodal Embeddings",
+    "_postman_id": "voyage-enterprise-mm",
+    "description": "Enterprise-grade Postman Collection for Voyage AI Multimodal Embeddings API.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{apiKey}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.voyageai.com"
+    },
+    {
+      "key": "apiKey",
+      "value": "YOUR_API_KEY"
+    },
+    {
+      "key": "model",
+      "value": "voyage-multimodal-3.5"
+    },
+    {
+      "key": "imageUrl",
+      "value": "https://images.unsplash.com/photo-1516117172878-fd2c41f4a759"
+    },
+    {
+      "key": "text",
+      "value": "Artificial Intelligence"
+    }
+  ],
+  "item": [
+    {
+      "name": "01 Functional",
+      "item": [
+        {
+          "name": "Functional 1",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 200',()=>pm.expect(pm.response.code).to.eql(200));",
+                  "try{let j=pm.response.json();pm.test('JSON',()=>pm.expect(j).to.be.an('object'));}catch(e){}",
+                  "pm.test('Response Time < 5s',()=>pm.expect(pm.response.responseTime).to.be.below(5000));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/v1/multimodalembeddings",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "multimodalembeddings"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"inputs\": [\n    {\n      \"content\": [\n        {\n          \"type\": \"text\",\n          \"text\": \"{{text}} 1\"\n        },\n        {\n          \"type\": \"image_url\",\n          \"image_url\": \"{{imageUrl}}\"\n        }\n      ]\n    }\n  ],\n  \"model\": \"{{model}}\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Functional 2",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 200',()=>pm.expect(pm.response.code).to.eql(200));",
+                  "try{let j=pm.response.json();pm.test('JSON',()=>pm.expect(j).to.be.an('object'));}catch(e){}",
+                  "pm.test('Response Time < 5s',()=>pm.expect(pm.response.responseTime).to.be.below(5000));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/v1/multimodalembeddings",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "multimodalembeddings"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"inputs\": [\n    {\n      \"content\": [\n        {\n          \"type\": \"text\",\n          \"text\": \"{{text}} 2\"\n        },\n        {\n          \"type\": \"image_url\",\n          \"image_url\": \"{{imageUrl}}\"\n        }\n      ]\n    }\n  ],\n  \"model\": \"{{model}}\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Functional 3",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 200',()=>pm.expect(pm.response.code).to.eql(200));",
+                  "try{let j=pm.response.json();pm.test('JSON',()=>pm.expect(j).to.be.an('object'));}catch(e){}",
+                  "pm.test('Response Time < 5s',()=>pm.expect(pm.response.responseTime).to.be.below(5000));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/v1/multimodalembeddings",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "multimodalembeddings"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"inputs\": [\n    {\n      \"content\": [\n        {\n          \"type\": \"text\",\n          \"text\": \"{{text}} 3\"\n        },\n        {\n          \"type\": \"image_url\",\n          \"image_url\": \"{{imageUrl}}\"\n        }\n      ]\n    }\n  ],\n  \"model\": \"{{model}}\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Functional 4",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 200',()=>pm.expect(pm.response.code).to.eql(200));",
+                  "try{let j=pm.response.json();pm.test('JSON',()=>pm.expect(j).to.be.an('object'));}catch(e){}",
+                  "pm.test('Response Time < 5s',()=>pm.expect(pm.response.responseTime).to.be.below(5000));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/v1/multimodalembeddings",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "multimodalembeddings"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"inputs\": [\n    {\n      \"content\": [\n        {\n          \"type\": \"text\",\n          \"text\": \"{{text}} 4\"\n        },\n        {\n          \"type\": \"image_url\",\n          \"image_url\": \"{{imageUrl}}\"\n        }\n      ]\n    }\n  ],\n  \"model\": \"{{model}}\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Functional 5",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 200',()=>pm.expect(pm.response.code).to.eql(200));",
+                  "try{let j=pm.response.json();pm.test('JSON',()=>pm.expect(j).to.be.an('object'));}catch(e){}",
+                  "pm.test('Response Time < 5s',()=>pm.expect(pm.response.responseTime).to.be.below(5000));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/v1/multimodalembeddings",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "multimodalembeddings"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"inputs\": [\n    {\n      \"content\": [\n        {\n          \"type\": \"text\",\n          \"text\": \"{{text}} 5\"\n        },\n        {\n          \"type\": \"image_url\",\n          \"image_url\": \"{{imageUrl}}\"\n        }\n      ]\n    }\n  ],\n  \"model\": \"{{model}}\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Functional 6",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 200',()=>pm.expect(pm.response.code).to.eql(200));",
+                  "try{let j=pm.response.json();pm.test('JSON',()=>pm.expect(j).to.be.an('object'));}catch(e){}",
+                  "pm.test('Response Time < 5s',()=>pm.expect(pm.response.responseTime).to.be.below(5000));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/v1/multimodalembeddings",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "multimodalembeddings"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"inputs\": [\n    {\n      \"content\": [\n        {\n          \"type\": \"text\",\n          \"text\": \"{{text}} 6\"\n        },\n        {\n          \"type\": \"image_url\",\n          \"image_url\": \"{{imageUrl}}\"\n        }\n      ]\n    }\n  ],\n  \"model\": \"{{model}}\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Functional 7",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 200',()=>pm.expect(pm.response.code).to.eql(200));",
+                  "try{let j=pm.response.json();pm.test('JSON',()=>pm.expect(j).to.be.an('object'));}catch(e){}",
+                  "pm.test('Response Time < 5s',()=>pm.expect(pm.response.responseTime).to.be.below(5000));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/v1/multimodalembeddings",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "multimodalembeddings"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"inputs\": [\n    {\n      \"content\": [\n        {\n          \"type\": \"text\",\n          \"text\": \"{{text}} 7\"\n        },\n        {\n          \"type\": \"image_url\",\n          \"image_url\": \"{{imageUrl}}\"\n        }\n      ]\n    }\n  ],\n  \"model\": \"{{model}}\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Functional 8",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 200',()=>pm.expect(pm.response.code).to.eql(200));",
+                  "try{let j=pm.response.json();pm.test('JSON',()=>pm.expect(j).to.be.an('object'));}catch(e){}",
+                  "pm.test('Response Time < 5s',()=>pm.expect(pm.response.responseTime).to.be.below(5000));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/v1/multimodalembeddings",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "multimodalembeddings"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"inputs\": [\n    {\n      \"content\": [\n        {\n          \"type\": \"text\",\n          \"text\": \"{{text}} 8\"\n        },\n        {\n          \"type\": \"image_url\",\n          \"image_url\": \"{{imageUrl}}\"\n        }\n      ]\n    }\n  ],\n  \"model\": \"{{model}}\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Functional 9",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 200',()=>pm.expect(pm.response.code).to.eql(200));",
+                  "try{let j=pm.response.json();pm.test('JSON',()=>pm.expect(j).to.be.an('object'));}catch(e){}",
+                  "pm.test('Response Time < 5s',()=>pm.expect(pm.response.responseTime).to.be.below(5000));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/v1/multimodalembeddings",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "multimodalembeddings"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"inputs\": [\n    {\n      \"content\": [\n        {\n          \"type\": \"text\",\n          \"text\": \"{{text}} 9\"\n        },\n        {\n          \"type\": \"image_url\",\n          \"image_url\": \"{{imageUrl}}\"\n        }\n      ]\n    }\n  ],\n  \"model\": \"{{model}}\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Functional 10",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 200',()=>pm.expect(pm.response.code).to.eql(200));",
+                  "try{let j=pm.response.json();pm.test('JSON',()=>pm.expect(j).to.be.an('object'));}catch(e){}",
+                  "pm.test('Response Time < 5s',()=>pm.expect(pm.response.responseTime).to.be.below(5000));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/v1/multimodalembeddings",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "multimodalembeddings"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"inputs\": [\n    {\n      \"content\": [\n        {\n          \"type\": \"text\",\n          \"text\": \"{{text}} 10\"\n        },\n        {\n          \"type\": \"image_url\",\n          \"image_url\": \"{{imageUrl}}\"\n        }\n      ]\n    }\n  ],\n  \"model\": \"{{model}}\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Functional 11",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 200',()=>pm.expect(pm.response.code).to.eql(200));",
+                  "try{let j=pm.response.json();pm.test('JSON',()=>pm.expect(j).to.be.an('object'));}catch(e){}",
+                  "pm.test('Response Time < 5s',()=>pm.expect(pm.response.responseTime).to.be.below(5000));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/v1/multimodalembeddings",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "multimodalembeddings"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"inputs\": [\n    {\n      \"content\": [\n        {\n          \"type\": \"text\",\n          \"text\": \"{{text}} 11\"\n        },\n        {\n          \"type\": \"image_url\",\n          \"image_url\": \"{{imageUrl}}\"\n        }\n      ]\n    }\n  ],\n  \"model\": \"{{model}}\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Functional 12",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 200',()=>pm.expect(pm.response.code).to.eql(200));",
+                  "try{let j=pm.response.json();pm.test('JSON',()=>pm.expect(j).to.be.an('object'));}catch(e){}",
+                  "pm.test('Response Time < 5s',()=>pm.expect(pm.response.responseTime).to.be.below(5000));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/v1/multimodalembeddings",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "multimodalembeddings"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"inputs\": [\n    {\n      \"content\": [\n        {\n          \"type\": \"text\",\n          \"text\": \"{{text}} 12\"\n        },\n        {\n          \"type\": \"image_url\",\n          \"image_url\": \"{{imageUrl}}\"\n        }\n      ]\n    }\n  ],\n  \"model\": \"{{model}}\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Functional 13",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 200',()=>pm.expect(pm.response.code).to.eql(200));",
+                  "try{let j=pm.response.json();pm.test('JSON',()=>pm.expect(j).to.be.an('object'));}catch(e){}",
+                  "pm.test('Response Time < 5s',()=>pm.expect(pm.response.responseTime).to.be.below(5000));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/v1/multimodalembeddings",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "multimodalembeddings"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"inputs\": [\n    {\n      \"content\": [\n        {\n          \"type\": \"text\",\n          \"text\": \"{{text}} 13\"\n        },\n        {\n          \"type\": \"image_url\",\n          \"image_url\": \"{{imageUrl}}\"\n        }\n      ]\n    }\n  ],\n  \"model\": \"{{model}}\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Functional 14",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 200',()=>pm.expect(pm.response.code).to.eql(200));",
+                  "try{let j=pm.response.json();pm.test('JSON',()=>pm.expect(j).to.be.an('object'));}catch(e){}",
+                  "pm.test('Response Time < 5s',()=>pm.expect(pm.response.responseTime).to.be.below(5000));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/v1/multimodalembeddings",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "multimodalembeddings"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"inputs\": [\n    {\n      \"content\": [\n        {\n          \"type\": \"text\",\n          \"text\": \"{{text}} 14\"\n        },\n        {\n          \"type\": \"image_url\",\n          \"image_url\": \"{{imageUrl}}\"\n        }\n      ]\n    }\n  ],\n  \"model\": \"{{model}}\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Functional 15",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 200',()=>pm.expect(pm.response.code).to.eql(200));",
+                  "try{let j=pm.response.json();pm.test('JSON',()=>pm.expect(j).to.be.an('object'));}catch(e){}",
+                  "pm.test('Response Time < 5s',()=>pm.expect(pm.response.responseTime).to.be.below(5000));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/v1/multimodalembeddings",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "multimodalembeddings"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"inputs\": [\n    {\n      \"content\": [\n        {\n          \"type\": \"text\",\n          \"text\": \"{{text}} 15\"\n        },\n        {\n          \"type\": \"image_url\",\n          \"image_url\": \"{{imageUrl}}\"\n        }\n      ]\n    }\n  ],\n  \"model\": \"{{model}}\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Functional 16",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 200',()=>pm.expect(pm.response.code).to.eql(200));",
+                  "try{let j=pm.response.json();pm.test('JSON',()=>pm.expect(j).to.be.an('object'));}catch(e){}",
+                  "pm.test('Response Time < 5s',()=>pm.expect(pm.response.responseTime).to.be.below(5000));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/v1/multimodalembeddings",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "multimodalembeddings"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"inputs\": [\n    {\n      \"content\": [\n        {\n          \"type\": \"text\",\n          \"text\": \"{{text}} 16\"\n        },\n        {\n          \"type\": \"image_url\",\n          \"image_url\": \"{{imageUrl}}\"\n        }\n      ]\n    }\n  ],\n  \"model\": \"{{model}}\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Functional 17",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 200',()=>pm.expect(pm.response.code).to.eql(200));",
+                  "try{let j=pm.response.json();pm.test('JSON',()=>pm.expect(j).to.be.an('object'));}catch(e){}",
+                  "pm.test('Response Time < 5s',()=>pm.expect(pm.response.responseTime).to.be.below(5000));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/v1/multimodalembeddings",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "multimodalembeddings"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"inputs\": [\n    {\n      \"content\": [\n        {\n          \"type\": \"text\",\n          \"text\": \"{{text}} 17\"\n        },\n        {\n          \"type\": \"image_url\",\n          \"image_url\": \"{{imageUrl}}\"\n        }\n      ]\n    }\n  ],\n  \"model\": \"{{model}}\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Functional 18",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 200',()=>pm.expect(pm.response.code).to.eql(200));",
+                  "try{let j=pm.response.json();pm.test('JSON',()=>pm.expect(j).to.be.an('object'));}catch(e){}",
+                  "pm.test('Response Time < 5s',()=>pm.expect(pm.response.responseTime).to.be.below(5000));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/v1/multimodalembeddings",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "multimodalembeddings"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"inputs\": [\n    {\n      \"content\": [\n        {\n          \"type\": \"text\",\n          \"text\": \"{{text}} 18\"\n        },\n        {\n          \"type\": \"image_url\",\n          \"image_url\": \"{{imageUrl}}\"\n        }\n      ]\n    }\n  ],\n  \"model\": \"{{model}}\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Functional 19",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 200',()=>pm.expect(pm.response.code).to.eql(200));",
+                  "try{let j=pm.response.json();pm.test('JSON',()=>pm.expect(j).to.be.an('object'));}catch(e){}",
+                  "pm.test('Response Time < 5s',()=>pm.expect(pm.response.responseTime).to.be.below(5000));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/v1/multimodalembeddings",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "multimodalembeddings"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"inputs\": [\n    {\n      \"content\": [\n        {\n          \"type\": \"text\",\n          \"text\": \"{{text}} 19\"\n        },\n        {\n          \"type\": \"image_url\",\n          \"image_url\": \"{{imageUrl}}\"\n        }\n      ]\n    }\n  ],\n  \"model\": \"{{model}}\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Functional 20",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 200',()=>pm.expect(pm.response.code).to.eql(200));",
+                  "try{let j=pm.response.json();pm.test('JSON',()=>pm.expect(j).to.be.an('object'));}catch(e){}",
+                  "pm.test('Response Time < 5s',()=>pm.expect(pm.response.responseTime).to.be.below(5000));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/v1/multimodalembeddings",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "multimodalembeddings"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"inputs\": [\n    {\n      \"content\": [\n        {\n          \"type\": \"text\",\n          \"text\": \"{{text}} 20\"\n        },\n        {\n          \"type\": \"image_url\",\n          \"image_url\": \"{{imageUrl}}\"\n        }\n      ]\n    }\n  ],\n  \"model\": \"{{model}}\"\n}"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "02 Authentication",
+      "item": [
+        {
+          "name": "Missing Token",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 401',()=>pm.expect(pm.response.code).to.eql(401));",
+                  "try{let j=pm.response.json();pm.test('JSON',()=>pm.expect(j).to.be.an('object'));}catch(e){}",
+                  "pm.test('Response Time < 5s',()=>pm.expect(pm.response.responseTime).to.be.below(5000));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/v1/multimodalembeddings",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "multimodalembeddings"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"inputs\": [\n    {\n      \"content\": [\n        {\n          \"type\": \"text\",\n          \"text\": \"x\"\n        }\n      ]\n    }\n  ],\n  \"model\": \"{{model}}\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Invalid Token",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 401',()=>pm.expect(pm.response.code).to.eql(401));",
+                  "try{let j=pm.response.json();pm.test('JSON',()=>pm.expect(j).to.be.an('object'));}catch(e){}",
+                  "pm.test('Response Time < 5s',()=>pm.expect(pm.response.responseTime).to.be.below(5000));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/v1/multimodalembeddings",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "multimodalembeddings"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"inputs\": [\n    {\n      \"content\": [\n        {\n          \"type\": \"text\",\n          \"text\": \"x\"\n        }\n      ]\n    }\n  ],\n  \"model\": \"{{model}}\"\n}"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "03 Boundary",
+      "item": [
+        {
+          "name": "Text Length 1",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 200',()=>pm.expect(pm.response.code).to.eql(200));",
+                  "try{let j=pm.response.json();pm.test('JSON',()=>pm.expect(j).to.be.an('object'));}catch(e){}",
+                  "pm.test('Response Time < 5s',()=>pm.expect(pm.response.responseTime).to.be.below(5000));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/v1/multimodalembeddings",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "multimodalembeddings"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"inputs\": [\n    {\n      \"content\": [\n        {\n          \"type\": \"text\",\n          \"text\": \"AAAAAAAAAAAAAAAAAAAA\"\n        }\n      ]\n    }\n  ],\n  \"model\": \"{{model}}\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Text Length 10",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 200',()=>pm.expect(pm.response.code).to.eql(200));",
+                  "try{let j=pm.response.json();pm.test('JSON',()=>pm.expect(j).to.be.an('object'));}catch(e){}",
+                  "pm.test('Response Time < 5s',()=>pm.expect(pm.response.responseTime).to.be.below(5000));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/v1/multimodalembeddings",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "multimodalembeddings"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"inputs\": [\n    {\n      \"content\": [\n        {\n          \"type\": \"text\",\n          \"text\": \"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\"\n        }\n      ]\n    }\n  ],\n  \"model\": \"{{model}}\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Text Length 50",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 200',()=>pm.expect(pm.response.code).to.eql(200));",
+                  "try{let j=pm.response.json();pm.test('JSON',()=>pm.expect(j).to.be.an('object'));}catch(e){}",
+                  "pm.test('Response Time < 5s',()=>pm.expect(pm.response.responseTime).to.be.below(5000));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/v1/multimodalembeddings",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "multimodalembeddings"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"inputs\": [\n    {\n      \"content\": [\n        {\n          \"type\": \"text\",\n          \"text\": \"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\"\n        }\n      ]\n    }\n  ],\n  \"model\": \"{{model}}\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Text Length 100",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 200',()=>pm.expect(pm.response.code).to.eql(200));",
+                  "try{let j=pm.response.json();pm.test('JSON',()=>pm.expect(j).to.be.an('object'));}catch(e){}",
+                  "pm.test('Response Time < 5s',()=>pm.expect(pm.response.responseTime).to.be.below(5000));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/v1/multimodalembeddings",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "multimodalembeddings"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"inputs\": [\n    {\n      \"content\": [\n        {\n          \"type\": \"text\",\n          \"text\": \"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\"\n        }\n      ]\n    }\n  ],\n  \"model\": \"{{model}}\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Text Length 250",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 200',()=>pm.expect(pm.response.code).to.eql(200));",
+                  "try{let j=pm.response.json();pm.test('JSON',()=>pm.expect(j).to.be.an('object'));}catch(e){}",
+                  "pm.test('Response Time < 5s',()=>pm.expect(pm.response.responseTime).to.be.below(5000));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/v1/multimodalembeddings",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "multimodalembeddings"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"inputs\": [\n    {\n      \"content\": [\n        {\n          \"type\": \"text\",\n          \"text\": \"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\"\n        }\n      ]\n    }\n  ],\n  \"model\": \"{{model}}\"\n}"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "04 Negative",
+      "item": [
+        {
+          "name": "Missing Model",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 400',()=>pm.expect(pm.response.code).to.eql(400));",
+                  "try{let j=pm.response.json();pm.test('JSON',()=>pm.expect(j).to.be.an('object'));}catch(e){}",
+                  "pm.test('Response Time < 5s',()=>pm.expect(pm.response.responseTime).to.be.below(5000));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/v1/multimodalembeddings",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "multimodalembeddings"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"inputs\": [\n    {\n      \"content\": [\n        {\n          \"type\": \"text\",\n          \"text\": \"x\"\n        }\n      ]\n    }\n  ]\n}"
+            }
+          }
+        },
+        {
+          "name": "Invalid Model",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 400',()=>pm.expect(pm.response.code).to.eql(400));",
+                  "try{let j=pm.response.json();pm.test('JSON',()=>pm.expect(j).to.be.an('object'));}catch(e){}",
+                  "pm.test('Response Time < 5s',()=>pm.expect(pm.response.responseTime).to.be.below(5000));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/v1/multimodalembeddings",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "multimodalembeddings"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"inputs\": [\n    {\n      \"content\": [\n        {\n          \"type\": \"text\",\n          \"text\": \"x\"\n        }\n      ]\n    }\n  ],\n  \"model\": \"bad\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Empty Inputs",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 400',()=>pm.expect(pm.response.code).to.eql(400));",
+                  "try{let j=pm.response.json();pm.test('JSON',()=>pm.expect(j).to.be.an('object'));}catch(e){}",
+                  "pm.test('Response Time < 5s',()=>pm.expect(pm.response.responseTime).to.be.below(5000));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/v1/multimodalembeddings",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "multimodalembeddings"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"inputs\": [],\n  \"model\": \"{{model}}\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Bad Image URL",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 400',()=>pm.expect(pm.response.code).to.eql(400));",
+                  "try{let j=pm.response.json();pm.test('JSON',()=>pm.expect(j).to.be.an('object'));}catch(e){}",
+                  "pm.test('Response Time < 5s',()=>pm.expect(pm.response.responseTime).to.be.below(5000));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/v1/multimodalembeddings",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "multimodalembeddings"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"inputs\": [\n    {\n      \"content\": [\n        {\n          \"type\": \"image_url\",\n          \"image_url\": \"https://bad\"\n        }\n      ]\n    }\n  ],\n  \"model\": \"{{model}}\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Malformed Content",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 400',()=>pm.expect(pm.response.code).to.eql(400));",
+                  "try{let j=pm.response.json();pm.test('JSON',()=>pm.expect(j).to.be.an('object'));}catch(e){}",
+                  "pm.test('Response Time < 5s',()=>pm.expect(pm.response.responseTime).to.be.below(5000));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/v1/multimodalembeddings",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "multimodalembeddings"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"inputs\": [\n    {\n      \"content\": \"oops\"\n    }\n  ],\n  \"model\": \"{{model}}\"\n}"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "05 Batch",
+      "item": [
+        {
+          "name": "Batch 2",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 200',()=>pm.expect(pm.response.code).to.eql(200));",
+                  "try{let j=pm.response.json();pm.test('JSON',()=>pm.expect(j).to.be.an('object'));}catch(e){}",
+                  "pm.test('Response Time < 5s',()=>pm.expect(pm.response.responseTime).to.be.below(5000));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/v1/multimodalembeddings",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "multimodalembeddings"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"inputs\": [\n    {\n      \"content\": [\n        {\n          \"type\": \"text\",\n          \"text\": \"sample 0\"\n        }\n      ]\n    },\n    {\n      \"content\": [\n        {\n          \"type\": \"text\",\n          \"text\": \"sample 1\"\n        }\n      ]\n    }\n  ],\n  \"model\": \"{{model}}\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Batch 5",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 200',()=>pm.expect(pm.response.code).to.eql(200));",
+                  "try{let j=pm.response.json();pm.test('JSON',()=>pm.expect(j).to.be.an('object'));}catch(e){}",
+                  "pm.test('Response Time < 5s',()=>pm.expect(pm.response.responseTime).to.be.below(5000));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/v1/multimodalembeddings",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "multimodalembeddings"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"inputs\": [\n    {\n      \"content\": [\n        {\n          \"type\": \"text\",\n          \"text\": \"sample 0\"\n        }\n      ]\n    },\n    {\n      \"content\": [\n        {\n          \"type\": \"text\",\n          \"text\": \"sample 1\"\n        }\n      ]\n    },\n    {\n      \"content\": [\n        {\n          \"type\": \"text\",\n          \"text\": \"sample 2\"\n        }\n      ]\n    },\n    {\n      \"content\": [\n        {\n          \"type\": \"text\",\n          \"text\": \"sample 3\"\n        }\n      ]\n    },\n    {\n      \"content\": [\n        {\n          \"type\": \"text\",\n          \"text\": \"sample 4\"\n        }\n      ]\n    }\n  ],\n  \"model\": \"{{model}}\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Batch 10",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 200',()=>pm.expect(pm.response.code).to.eql(200));",
+                  "try{let j=pm.response.json();pm.test('JSON',()=>pm.expect(j).to.be.an('object'));}catch(e){}",
+                  "pm.test('Response Time < 5s',()=>pm.expect(pm.response.responseTime).to.be.below(5000));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/v1/multimodalembeddings",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "multimodalembeddings"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"inputs\": [\n    {\n      \"content\": [\n        {\n          \"type\": \"text\",\n          \"text\": \"sample 0\"\n        }\n      ]\n    },\n    {\n      \"content\": [\n        {\n          \"type\": \"text\",\n          \"text\": \"sample 1\"\n        }\n      ]\n    },\n    {\n      \"content\": [\n        {\n          \"type\": \"text\",\n          \"text\": \"sample 2\"\n        }\n      ]\n    },\n    {\n      \"content\": [\n        {\n          \"type\": \"text\",\n          \"text\": \"sample 3\"\n        }\n      ]\n    },\n    {\n      \"content\": [\n        {\n          \"type\": \"text\",\n          \"text\": \"sample 4\"\n        }\n      ]\n    },\n    {\n      \"content\": [\n        {\n          \"type\": \"text\",\n          \"text\": \"sample 5\"\n        }\n      ]\n    },\n    {\n      \"content\": [\n        {\n          \"type\": \"text\",\n          \"text\": \"sample 6\"\n        }\n      ]\n    },\n    {\n      \"content\": [\n        {\n          \"type\": \"text\",\n          \"text\": \"sample 7\"\n        }\n      ]\n    },\n    {\n      \"content\": [\n        {\n          \"type\": \"text\",\n          \"text\": \"sample 8\"\n        }\n      ]\n    },\n    {\n      \"content\": [\n        {\n          \"type\": \"text\",\n          \"text\": \"sample 9\"\n        }\n      ]\n    }\n  ],\n  \"model\": \"{{model}}\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Batch 25",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 200',()=>pm.expect(pm.response.code).to.eql(200));",
+                  "try{let j=pm.response.json();pm.test('JSON',()=>pm.expect(j).to.be.an('object'));}catch(e){}",
+                  "pm.test('Response Time < 5s',()=>pm.expect(pm.response.responseTime).to.be.below(5000));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/v1/multimodalembeddings",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "multimodalembeddings"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"inputs\": [\n    {\n      \"content\": [\n        {\n          \"type\": \"text\",\n          \"text\": \"sample 0\"\n        }\n      ]\n    },\n    {\n      \"content\": [\n        {\n          \"type\": \"text\",\n          \"text\": \"sample 1\"\n        }\n      ]\n    },\n    {\n      \"content\": [\n        {\n          \"type\": \"text\",\n          \"text\": \"sample 2\"\n        }\n      ]\n    },\n    {\n      \"content\": [\n        {\n          \"type\": \"text\",\n          \"text\": \"sample 3\"\n        }\n      ]\n    },\n    {\n      \"content\": [\n        {\n          \"type\": \"text\",\n          \"text\": \"sample 4\"\n        }\n      ]\n    },\n    {\n      \"content\": [\n        {\n          \"type\": \"text\",\n          \"text\": \"sample 5\"\n        }\n      ]\n    },\n    {\n      \"content\": [\n        {\n          \"type\": \"text\",\n          \"text\": \"sample 6\"\n        }\n      ]\n    },\n    {\n      \"content\": [\n        {\n          \"type\": \"text\",\n          \"text\": \"sample 7\"\n        }\n      ]\n    },\n    {\n      \"content\": [\n        {\n          \"type\": \"text\",\n          \"text\": \"sample 8\"\n        }\n      ]\n    },\n    {\n      \"content\": [\n        {\n          \"type\": \"text\",\n          \"text\": \"sample 9\"\n        }\n      ]\n    },\n    {\n      \"content\": [\n        {\n          \"type\": \"text\",\n          \"text\": \"sample 10\"\n        }\n      ]\n    },\n    {\n      \"content\": [\n        {\n          \"type\": \"text\",\n          \"text\": \"sample 11\"\n        }\n      ]\n    },\n    {\n      \"content\": [\n        {\n          \"type\": \"text\",\n          \"text\": \"sample 12\"\n        }\n      ]\n    },\n    {\n      \"content\": [\n        {\n          \"type\": \"text\",\n          \"text\": \"sample 13\"\n        }\n      ]\n    },\n    {\n      \"content\": [\n        {\n          \"type\": \"text\",\n          \"text\": \"sample 14\"\n        }\n      ]\n    },\n    {\n      \"content\": [\n        {\n          \"type\": \"text\",\n          \"text\": \"sample 15\"\n        }\n      ]\n    },\n    {\n      \"content\": [\n        {\n          \"type\": \"text\",\n          \"text\": \"sample 16\"\n        }\n      ]\n    },\n    {\n      \"content\": [\n        {\n          \"type\": \"text\",\n          \"text\": \"sample 17\"\n        }\n      ]\n    },\n    {\n      \"content\": [\n        {\n          \"type\": \"text\",\n          \"text\": \"sample 18\"\n        }\n      ]\n    },\n    {\n      \"content\": [\n        {\n          \"type\": \"text\",\n          \"text\": \"sample 19\"\n        }\n      ]\n    },\n    {\n      \"content\": [\n        {\n          \"type\": \"text\",\n          \"text\": \"sample 20\"\n        }\n      ]\n    },\n    {\n      \"content\": [\n        {\n          \"type\": \"text\",\n          \"text\": \"sample 21\"\n        }\n      ]\n    },\n    {\n      \"content\": [\n        {\n          \"type\": \"text\",\n          \"text\": \"sample 22\"\n        }\n      ]\n    },\n    {\n      \"content\": [\n        {\n          \"type\": \"text\",\n          \"text\": \"sample 23\"\n        }\n      ]\n    },\n    {\n      \"content\": [\n        {\n          \"type\": \"text\",\n          \"text\": \"sample 24\"\n        }\n      ]\n    }\n  ],\n  \"model\": \"{{model}}\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Batch 50",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 200',()=>pm.expect(pm.response.code).to.eql(200));",
+                  "try{let j=pm.response.json();pm.test('JSON',()=>pm.expect(j).to.be.an('object'));}catch(e){}",
+                  "pm.test('Response Time < 5s',()=>pm.expect(pm.response.responseTime).to.be.below(5000));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/v1/multimodalembeddings",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "multimodalembeddings"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"inputs\": [\n    {\n      \"content\": [\n        {\n          \"type\": \"text\",\n          \"text\": \"sample 0\"\n        }\n      ]\n    },\n    {\n      \"content\": [\n        {\n          \"type\": \"text\",\n          \"text\": \"sample 1\"\n        }\n      ]\n    },\n    {\n      \"content\": [\n        {\n          \"type\": \"text\",\n          \"text\": \"sample 2\"\n        }\n      ]\n    },\n    {\n      \"content\": [\n        {\n          \"type\": \"text\",\n          \"text\": \"sample 3\"\n        }\n      ]\n    },\n    {\n      \"content\": [\n        {\n          \"type\": \"text\",\n          \"text\": \"sample 4\"\n        }\n      ]\n    },\n    {\n      \"content\": [\n        {\n          \"type\": \"text\",\n          \"text\": \"sample 5\"\n        }\n      ]\n    },\n    {\n      \"content\": [\n        {\n          \"type\": \"text\",\n          \"text\": \"sample 6\"\n        }\n      ]\n    },\n    {\n      \"content\": [\n        {\n          \"type\": \"text\",\n          \"text\": \"sample 7\"\n        }\n      ]\n    },\n    {\n      \"content\": [\n        {\n          \"type\": \"text\",\n          \"text\": \"sample 8\"\n        }\n      ]\n    },\n    {\n      \"content\": [\n        {\n          \"type\": \"text\",\n          \"text\": \"sample 9\"\n        }\n      ]\n    },\n    {\n      \"content\": [\n        {\n          \"type\": \"text\",\n          \"text\": \"sample 10\"\n        }\n      ]\n    },\n    {\n      \"content\": [\n        {\n          \"type\": \"text\",\n          \"text\": \"sample 11\"\n        }\n      ]\n    },\n    {\n      \"content\": [\n        {\n          \"type\": \"text\",\n          \"text\": \"sample 12\"\n        }\n      ]\n    },\n    {\n      \"content\": [\n        {\n          \"type\": \"text\",\n          \"text\": \"sample 13\"\n        }\n      ]\n    },\n    {\n      \"content\": [\n        {\n          \"type\": \"text\",\n          \"text\": \"sample 14\"\n        }\n      ]\n    },\n    {\n      \"content\": [\n        {\n          \"type\": \"text\",\n          \"text\": \"sample 15\"\n        }\n      ]\n    },\n    {\n      \"content\": [\n        {\n          \"type\": \"text\",\n          \"text\": \"sample 16\"\n        }\n      ]\n    },\n    {\n      \"content\": [\n        {\n          \"type\": \"text\",\n          \"text\": \"sample 17\"\n        }\n      ]\n    },\n    {\n      \"content\": [\n        {\n          \"type\": \"text\",\n          \"text\": \"sample 18\"\n        }\n      ]\n    },\n    {\n      \"content\": [\n        {\n          \"type\": \"text\",\n          \"text\": \"sample 19\"\n        }\n      ]\n    },\n    {\n      \"content\": [\n        {\n          \"type\": \"text\",\n          \"text\": \"sample 20\"\n        }\n      ]\n    },\n    {\n      \"content\": [\n        {\n          \"type\": \"text\",\n          \"text\": \"sample 21\"\n        }\n      ]\n    },\n    {\n      \"content\": [\n        {\n          \"type\": \"text\",\n          \"text\": \"sample 22\"\n        }\n      ]\n    },\n    {\n      \"content\": [\n        {\n          \"type\": \"text\",\n          \"text\": \"sample 23\"\n        }\n      ]\n    },\n    {\n      \"content\": [\n        {\n          \"type\": \"text\",\n          \"text\": \"sample 24\"\n        }\n      ]\n    },\n    {\n      \"content\": [\n        {\n          \"type\": \"text\",\n          \"text\": \"sample 25\"\n        }\n      ]\n    },\n    {\n      \"content\": [\n        {\n          \"type\": \"text\",\n          \"text\": \"sample 26\"\n        }\n      ]\n    },\n    {\n      \"content\": [\n        {\n          \"type\": \"text\",\n          \"text\": \"sample 27\"\n        }\n      ]\n    },\n    {\n      \"content\": [\n        {\n          \"type\": \"text\",\n          \"text\": \"sample 28\"\n        }\n      ]\n    },\n    {\n      \"content\": [\n        {\n          \"type\": \"text\",\n          \"text\": \"sample 29\"\n        }\n      ]\n    },\n    {\n      \"content\": [\n        {\n          \"type\": \"text\",\n          \"text\": \"sample 30\"\n        }\n      ]\n    },\n    {\n      \"content\": [\n        {\n          \"type\": \"text\",\n          \"text\": \"sample 31\"\n        }\n      ]\n    },\n    {\n      \"content\": [\n        {\n          \"type\": \"text\",\n          \"text\": \"sample 32\"\n        }\n      ]\n    },\n    {\n      \"content\": [\n        {\n          \"type\": \"text\",\n          \"text\": \"sample 33\"\n        }\n      ]\n    },\n    {\n      \"content\": [\n        {\n          \"type\": \"text\",\n          \"text\": \"sample 34\"\n        }\n      ]\n    },\n    {\n      \"content\": [\n        {\n          \"type\": \"text\",\n          \"text\": \"sample 35\"\n        }\n      ]\n    },\n    {\n      \"content\": [\n        {\n          \"type\": \"text\",\n          \"text\": \"sample 36\"\n        }\n      ]\n    },\n    {\n      \"content\": [\n        {\n          \"type\": \"text\",\n          \"text\": \"sample 37\"\n        }\n      ]\n    },\n    {\n      \"content\": [\n        {\n          \"type\": \"text\",\n          \"text\": \"sample 38\"\n        }\n      ]\n    },\n    {\n      \"content\": [\n        {\n          \"type\": \"text\",\n          \"text\": \"sample 39\"\n        }\n      ]\n    },\n    {\n      \"content\": [\n        {\n          \"type\": \"text\",\n          \"text\": \"sample 40\"\n        }\n      ]\n    },\n    {\n      \"content\": [\n        {\n          \"type\": \"text\",\n          \"text\": \"sample 41\"\n        }\n      ]\n    },\n    {\n      \"content\": [\n        {\n          \"type\": \"text\",\n          \"text\": \"sample 42\"\n        }\n      ]\n    },\n    {\n      \"content\": [\n        {\n          \"type\": \"text\",\n          \"text\": \"sample 43\"\n        }\n      ]\n    },\n    {\n      \"content\": [\n        {\n          \"type\": \"text\",\n          \"text\": \"sample 44\"\n        }\n      ]\n    },\n    {\n      \"content\": [\n        {\n          \"type\": \"text\",\n          \"text\": \"sample 45\"\n        }\n      ]\n    },\n    {\n      \"content\": [\n        {\n          \"type\": \"text\",\n          \"text\": \"sample 46\"\n        }\n      ]\n    },\n    {\n      \"content\": [\n        {\n          \"type\": \"text\",\n          \"text\": \"sample 47\"\n        }\n      ]\n    },\n    {\n      \"content\": [\n        {\n          \"type\": \"text\",\n          \"text\": \"sample 48\"\n        }\n      ]\n    },\n    {\n      \"content\": [\n        {\n          \"type\": \"text\",\n          \"text\": \"sample 49\"\n        }\n      ]\n    }\n  ],\n  \"model\": \"{{model}}\"\n}"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "06 Performance",
+      "item": [
+        {
+          "name": "Concurrent Placeholder 1",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 200',()=>pm.expect(pm.response.code).to.eql(200));",
+                  "try{let j=pm.response.json();pm.test('JSON',()=>pm.expect(j).to.be.an('object'));}catch(e){}",
+                  "pm.test('Response Time < 5s',()=>pm.expect(pm.response.responseTime).to.be.below(5000));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/v1/multimodalembeddings",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "multimodalembeddings"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"inputs\": [\n    {\n      \"content\": [\n        {\n          \"type\": \"text\",\n          \"text\": \"perf\"\n        }\n      ]\n    }\n  ],\n  \"model\": \"{{model}}\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Concurrent Placeholder 10",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 200',()=>pm.expect(pm.response.code).to.eql(200));",
+                  "try{let j=pm.response.json();pm.test('JSON',()=>pm.expect(j).to.be.an('object'));}catch(e){}",
+                  "pm.test('Response Time < 5s',()=>pm.expect(pm.response.responseTime).to.be.below(5000));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/v1/multimodalembeddings",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "multimodalembeddings"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"inputs\": [\n    {\n      \"content\": [\n        {\n          \"type\": \"text\",\n          \"text\": \"perf\"\n        }\n      ]\n    }\n  ],\n  \"model\": \"{{model}}\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Concurrent Placeholder 25",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 200',()=>pm.expect(pm.response.code).to.eql(200));",
+                  "try{let j=pm.response.json();pm.test('JSON',()=>pm.expect(j).to.be.an('object'));}catch(e){}",
+                  "pm.test('Response Time < 5s',()=>pm.expect(pm.response.responseTime).to.be.below(5000));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/v1/multimodalembeddings",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "multimodalembeddings"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"inputs\": [\n    {\n      \"content\": [\n        {\n          \"type\": \"text\",\n          \"text\": \"perf\"\n        }\n      ]\n    }\n  ],\n  \"model\": \"{{model}}\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Concurrent Placeholder 50",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 200',()=>pm.expect(pm.response.code).to.eql(200));",
+                  "try{let j=pm.response.json();pm.test('JSON',()=>pm.expect(j).to.be.an('object'));}catch(e){}",
+                  "pm.test('Response Time < 5s',()=>pm.expect(pm.response.responseTime).to.be.below(5000));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/v1/multimodalembeddings",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "multimodalembeddings"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"inputs\": [\n    {\n      \"content\": [\n        {\n          \"type\": \"text\",\n          \"text\": \"perf\"\n        }\n      ]\n    }\n  ],\n  \"model\": \"{{model}}\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Concurrent Placeholder 100",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status 200',()=>pm.expect(pm.response.code).to.eql(200));",
+                  "try{let j=pm.response.json();pm.test('JSON',()=>pm.expect(j).to.be.an('object'));}catch(e){}",
+                  "pm.test('Response Time < 5s',()=>pm.expect(pm.response.responseTime).to.be.below(5000));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/v1/multimodalembeddings",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "multimodalembeddings"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"inputs\": [\n    {\n      \"content\": [\n        {\n          \"type\": \"text\",\n          \"text\": \"perf\"\n        }\n      ]\n    }\n  ],\n  \"model\": \"{{model}}\"\n}"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
